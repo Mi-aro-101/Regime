@@ -1,4 +1,3 @@
-<?php echo $_SESSION['user']->id_utilisateur;?>
 <!DOCTYPE html>
 <html lang="en">
 

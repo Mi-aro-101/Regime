@@ -28,13 +28,14 @@
                 <div class="form-group">
                     <label for="exampleSelectGender">Type de regime</label>
                     <select class="form-control" id="exampleSelectGender">
-                        <option>Male</option>
-                        <option>Female</option>
+                        <?php foreach($objectifs as $objectif){ ?>
+                            <option value="<?php echo $objectif->id_objectif;?>"><?php echo $objectif->reference_objectif;?></option>
+                        <?php } ?>
                     </select>
                 </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Valeur (en kg)</label>
-                        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Taille">
+                        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Valeur">
                     </div>
                 <button type="submit" class="btn btn-primary mr-2">Soumettre</button>
                 </form>
