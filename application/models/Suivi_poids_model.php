@@ -18,5 +18,10 @@
 
             return $suivis;
         }
+
+        public function store($table, $data){
+            $result = $this->db->insert($table, $data);
+		    return $result;
+        }
     }
 ?>
