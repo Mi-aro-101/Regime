@@ -36,10 +36,10 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src=<?php echo base_url("image/health-weight.svg");?> alt="profile"/>
+              <img src=<?php echo base_url("image/logout.jpg");?> alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
+              <a class="dropdown-item" href=<?php echo site_url("utilisateur/deconnecter");?>>
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>

@@ -10,7 +10,7 @@
                 where u.id_utilisateur=%s";
             $query = sprintf($query, $_SESSION['utilisateur']->id_utilisateur);
             $query = $this->db->query($query);
-            $code = array();
+            $suivis = array();
 
             foreach($query->result_array() as $row){
                 $suivis[] = $row;
