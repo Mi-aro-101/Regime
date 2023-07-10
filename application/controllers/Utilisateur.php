@@ -60,7 +60,8 @@ class Utilisateur extends CI_Controller {
         $utilisateur = $this->utilisateur_model->get_utilisateur_where('Utilisateur', $mail, $password);
         
         if($utilisateur != null){
-            redirect(site_url(""));
+            $_SESSION['user']= $utilisateur;
+            redirect(site_url("Accueil/accueil"));
         }
         else{
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Mot de passe ou mail invalide.</div>');

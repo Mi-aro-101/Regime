@@ -7,5 +7,10 @@ class Index extends CI_Controller {
 	{
 		$this->load->view('index');
 	}
+
+	public function accueil(){
+		$this->load->view('accueil');
+	}
+	
 	
 }
