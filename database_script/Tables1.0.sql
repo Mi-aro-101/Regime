@@ -56,14 +56,83 @@ create table if not exists Sport(
 
 create table if not exists Poids_statut(
     id_poids_statut INTEGER PRIMARY KEY AUTO_INCREMENT,
-    statut_poids INTEGER NOT NULL,
-
+    statut_poids INTEGER NOT NULL
 );
 
 create table if not exists Imc(
     id_imc INTEGER PRIMARY KEY AUTO_INCREMENT,
+    statut_imc INTEGER NOT NULL,
+    reference_imc VARCHAR(50) NOT NULL
+);
+
+create table if not exists Regime_plat(
+    id_regime_plat INTEGER PRIMARY KEY AUTO_INCREMENT,
     id_plat INTEGER REFERENCES Plat(id_plat),
     id_objectif INTEGER REFERENCES Objectif(id_objectif),
     id_imc INTEGER REFERENCES Imc(id_imc),
-    id_poids_statut INTEGER REFERENCES 
+    id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut)
+);
+
+create table if not exists Regime_sport(
+    id_regime_sport INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_sport INTEGER REFERENCES Sport(id_sport),
+    id_objectif INTEGER REFERENCES Objectif(id_objectif),
+    id_imc INTEGER REFERENCES Imc(id_imc),
+    id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut)
+);
+
+create table if not exists Regime_journalier(
+    id_regime_journalier INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_programme INTEGER REFERENCES Programme(id_programme),
+    regime_date DATE
+);
+
+create table if not exists Regime_journalier_detail_plat(
+    id_regime_journalier_detail_plat INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_regime_journalier INTEGER REFERENCES Regime_journalier(id_regime_journalier),
+    id_regime_plat INTEGER REFERENCES Regime_plat(id_regime_plat)
+);
+
+create table if not exists Regime_journalier_detail_sport(
+    id_regime_journalier_detail_sport INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_regime_journalier INTEGER REFERENCES Regime_journalier(id_regime_journalier),
+    id_regime_sport INTEGER REFERENCES Regime_sport(id_regime_sport)
+);
+
+create table if not exists Code(
+    id_code INTEGER PRIMARY KEY AUTO_INCREMENT,
+    code VARCHAR(14) NOT NULL,
+    montant DOUBLE PRECISION NOT NULL
+);
+
+create table if not exists Code_statut(
+    id_code_statut INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_code INTEGER REFERENCES Code(id_code),
+    id_utilisateur INTEGER REFERENCES Utilisateur(id_utilisateur),
+    date_envoi date NOT NULL,
+    date_acceptation date DEFAULT NULL,
+    date_refus date DEFAULT null
+);
+
+create table if not exists Porte_feuille_utilisateur(
+    id_porte_feuille_utilisateur INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_utilisateur INTEGER REFERENCES Utilisateur(id_utilisateur)
+);
+
+create table if not exists Porte_feuille_utilisateur_historique(
+    id_porte_feuille_utilisateur_historique INTEGER PRIMARY KEY AUTO_INCREMENT,
+    montant DOUBLE PRECISION,
+    statut_transaction_utilisateur INT NOT NULL, -- retrait : -1, depot : 1
+    date_transaction_utilisateur date NOT NULL
+);
+
+create table if not exists Porte_feuille_application(
+    id_porte_feuille_application INTEGER PRIMARY KEY AUTO_INCREMENT
+);
+
+create table if not exists Porte_feuille_application_historique(
+    id_porte_feuille_application_historique INTEGER PRIMARY KEY AUTO_INCREMENT,
+    montant DOUBLE PRECISION,
+    statut_transaction_application INT NOT NULL, -- retrait : -1, depot : 1
+    date_transaction_application date NOT NULL
 );
