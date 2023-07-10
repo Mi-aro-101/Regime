@@ -27,7 +27,7 @@ create table if not exists Completion(
 
 create table if not exists Objectif(
     id_objectif INTEGER PRIMARY KEY AUTO_INCREMENT,
-    statut_objectif INT NOT NULL,
+    statut_objectif INT NOT NULL, -- 1: mincir, 5: grossir
     reference_objectif VARCHAR(50) NOT NULL
 );
 
@@ -44,9 +44,15 @@ create table if not exists Programme(
     duree INT NOT NULL -- En semaine
 );
 
+create table if not exists Moment_journee(
+    id_moment_journee INTEGER PRIMARY KEY AUTO_INCREMENT,
+    reference_moment_journee VARCHAR(50) NOT NULL
+);
+
 create table if not exists Plat(
     id_plat INTEGER PRIMARY KEY AUTO_INCREMENT,
-    designation_plat VARCHAR(50) NOT NULL
+    designation_plat VARCHAR(50) NOT NULL,
+    id_moment_journee INTEGER REFERENCES Moment_journee(id_moment_journee)
 );
 
 create table if not exists Sport(
@@ -54,13 +60,19 @@ create table if not exists Sport(
     designation_sport VARCHAR(50) NOT NULL
 );
 
+-- palier de perte/prise de poids : +10 ou -10
 create table if not exists Poids_statut(
     id_poids_statut INTEGER PRIMARY KEY AUTO_INCREMENT,
+    statut_poids INTEGER NOT NULL,
+    reference_poids VARCHAR(50) NOT NULL
     statut_poids INTEGER NOT NULL
 );
 
 create table if not exists Imc(
     id_imc INTEGER PRIMARY KEY AUTO_INCREMENT,
+    intervalle_debut DOUBLE PRECISION NOT NULL,
+    intervalle_fin DOUBLE PRECISION NOT NULL,
+    designation_imc VARCHAR(50) NOT NULL
     statut_imc INTEGER NOT NULL,
     reference_imc VARCHAR(50) NOT NULL
 );
@@ -70,6 +82,8 @@ create table if not exists Regime_plat(
     id_plat INTEGER REFERENCES Plat(id_plat),
     id_objectif INTEGER REFERENCES Objectif(id_objectif),
     id_imc INTEGER REFERENCES Imc(id_imc),
+    id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut),
+    quantite DOUBLE PRECISION NOT NULL
     id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut)
 );
 
@@ -78,6 +92,9 @@ create table if not exists Regime_sport(
     id_sport INTEGER REFERENCES Sport(id_sport),
     id_objectif INTEGER REFERENCES Objectif(id_objectif),
     id_imc INTEGER REFERENCES Imc(id_imc),
+    id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut),
+    repetition INTEGER NOT NULL,
+    serie INTEGER NOT NULL
     id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut)
 );
 
