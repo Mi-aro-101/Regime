@@ -22,7 +22,6 @@ create table if not exists Completion(
     id_completion INTEGER PRIMARY KEY AUTO_INCREMENT,
     id_utilisateur INTEGER REFERENCES Utilisateur(id_utilisateur),
     poids_utilisateur DOUBLE PRECISION NOT NULL,
-    poids_completion DOUBLE PRECISION NOT NULL,
     taille INTEGER NOT NULL
 );
 
