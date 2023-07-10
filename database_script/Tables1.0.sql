@@ -21,7 +21,7 @@ create table if not exists Utilisateur(
 create table if not exists Completion(
     id_completion INTEGER PRIMARY KEY AUTO_INCREMENT,
     id_utilisateur INTEGER REFERENCES Utilisateur(id_utilisateur),
-    poids DOUBLE PRECISION NOT NULL,
+    poids_completion DOUBLE PRECISION NOT NULL,
     taille INTEGER NOT NULL
 );
 
@@ -35,7 +35,7 @@ create table if not exists Objectifs_utilisateur(
     id_objectifs_utilisateur INTEGER PRIMARY KEY AUTO_INCREMENT,
     id_objectif INTEGER REFERENCES Objectif(id_objectif),
     id_utilisateur INTEGER REFERENCES Utilisateur(id_utilisateur),
-    poids DOUBLE PRECISION
+    poids_objectif DOUBLE PRECISION
 );
 
 create table if not exists Programme(
