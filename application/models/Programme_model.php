@@ -29,6 +29,7 @@ class Programme_model extends CI_Model
 
     public function get_regimes_adequats($id_objectif){
         $regime = $this->Regime_plat_model->get_regime_plat_parid('Regime_plat',$id_objectif)->result();
+        
     }
 
 
