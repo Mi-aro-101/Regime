@@ -10,7 +10,8 @@ class Accueil extends CI_Controller {
     }
 
 	public function accueil(){
-        $this->load->view('accueil');
+        $this->load->view('header');
+        $this->load->view('footer');
     }
 	
 }
