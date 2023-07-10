@@ -12,6 +12,7 @@ class Completion extends CI_Controller {
 
     public function assign_poids($suivis){
         $i = 0;
+        $valiny = [];
         foreach($suivis as $suivi){
             $valiny[$i] =  $suivi['poids_suivi'];
             $i++;
@@ -22,6 +23,7 @@ class Completion extends CI_Controller {
 
     public function assign_date($suivis){
         $i = 0;
+        $valiny=[];
         foreach($suivis as $suivi){
             $valiny[$i] = $suivi['date_suivi'];
             $i++;
@@ -33,12 +35,12 @@ class Completion extends CI_Controller {
     public function index(){
         $utilisateur_completion = $this->completion_model->get_completion_where('Completion', $_SESSION['utilisateur']->id_utilisateur);
         $objectifs['objectifs'] = $this->objectif_model->get_objectif('Objectif');
+        $suivis = $this->suivi_poids_model->get_Suivi_poids();
         $this->load->view('header.php');
-        if($utilisateur_completion == null){
+        if($suivis == null){
             $this->load->view('completion_objectif', $objectifs);
         }
         else{
-            $suivis = $this->suivi_poids_model->get_Suivi_poids();
             $suivi_poids = $this->assign_poids($suivis);
             $date = $this->assign_date($suivis);
             $suivis['poids_suivis'] = json_encode($suivi_poids);
