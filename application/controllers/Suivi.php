@@ -6,11 +6,19 @@ class Suivi extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model("suivi_poids_model");
+        $this->load->model("completion_model");
     }
 
     public function index(){
         $this->load->view("header");
-        $this->load->view("inserer_suivi");
+        $completions = $this->completion_model->get_completion_where('Completion', $_SESSION['utilisateur']->id_utilisateur);
+        if($completions == null){
+            $this->load->view("suivi_null");
+        }
+        else{
+            $this->load->view("inserer_suivi");
+        }
+
         $this->load->view("footer");
     }
 

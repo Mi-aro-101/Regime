@@ -7,6 +7,7 @@ class Utilisateur extends CI_Controller {
         parent::__construct();
         $this->load->model("utilisateur_model");
         $this->load->model("genre_model");
+        $this->load->model("porte_feuille_model");
     }
 
 	public function index()
@@ -47,6 +48,7 @@ class Utilisateur extends CI_Controller {
 
         if($this->verifier_mdp($data['mot_de_passe_utilisateur'], $password2)) {
             $this->utilisateur_model->insert('Utilisateur', $data);
+
             $this->session->set_flashdata('message', '<div class="alert alert-success">Vous avez bien été enregistré.</div>');
             redirect(base_url());
         }
