@@ -20,7 +20,7 @@ class Suivi extends CI_Controller {
         $data['poids_suivi'] = $_POST['poids_suivi'];
         $data['commentaire_suivi'] = " ";
 
-        $this->suivi_poids_model->store('Suivi_poids', $data);
+        $this->suivi_poids_model->insert('Suivi_poids', $data);
         redirect(site_url("completion"));
 
     }
