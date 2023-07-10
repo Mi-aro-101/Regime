@@ -77,7 +77,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href=<?php echo site_url("completion"); ?>>
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Mon profil</span>
             </a>
@@ -95,7 +95,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="charts">
+            <a class="nav-link" href=<?php echo site_url("suivi");?>>
               <i class="icon-bar-graph menu-icon"></i>
               <span class="menu-title">Suivie</span>
             </a>
