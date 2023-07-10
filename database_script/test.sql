@@ -16,3 +16,8 @@ insert into Utilisateur (nom_utilisateur, mail_utilisateur, mot_de_passe_utilisa
     ('Benja', 'benja@gmail.com', '111', 1),
     ('Eric', 'eric@gmail.com', '222', 1),
     ('To', 'to@gmail.com', '333', 1);
+
+
+insert into Genre(statut_genre, designation_genre) values
+    (1, 'Femme'),
+    (0, 'Homme');

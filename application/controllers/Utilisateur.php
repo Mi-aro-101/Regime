@@ -6,6 +6,7 @@ class Utilisateur extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model("utilisateur_model");
+        $this->load->model("genre_model");
     }
 
 	public function index()
@@ -17,7 +18,8 @@ class Utilisateur extends CI_Controller {
      * Function that load the inscription view
      */
     public function inscription(){
-        $this->load->view('inscription');
+        $genres['genres'] = $this->genre_model->get_genre('Genre');
+        $this->load->view('inscription', $genres);
     }
 
     /**
@@ -35,11 +37,13 @@ class Utilisateur extends CI_Controller {
      * Called for insertion
      */
     public function store(){
+        $data['id_genre'] = $_POST['genre'];
         $data['nom_utilisateur'] = $_POST['nom_utilisateur'];
         $data['mail_utilisateur'] = $_POST["mail_utilisateur"];
         $data['mot_de_passe_utilisateur'] = $_POST["mot_de_passe_utilisateur1"];
         $password2 = $_POST["mot_de_passe_utilisateur2"];
         $data['statut_utilisateur'] = 1;
+
 
         if($this->verifier_mdp($data['mot_de_passe_utilisateur'], $password2)) {
             $this->utilisateur_model->insert('Utilisateur', $data);
@@ -60,8 +64,8 @@ class Utilisateur extends CI_Controller {
         $utilisateur = $this->utilisateur_model->get_utilisateur_where('Utilisateur', $mail, $password);
         
         if($utilisateur != null){
-            $_SESSION['user']= $utilisateur;
-            redirect(site_url("Accueil/accueil"));
+            $_SESSION['utilisateur']= $utilisateur;
+            redirect(site_url("Completion"));
         }
         else{
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Mot de passe ou mail invalide.</div>');

@@ -27,7 +27,7 @@ create table if not exists Completion(
 
 create table if not exists Objectif(
     id_objectif INTEGER PRIMARY KEY AUTO_INCREMENT,
-    statut_objectif INT NOT NULL,
+    statut_objectif INT NOT NULL, -- 1: mincir, 5: grossir
     reference_objectif VARCHAR(50) NOT NULL
 );
 

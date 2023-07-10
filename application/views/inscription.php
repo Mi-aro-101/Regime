@@ -10,6 +10,7 @@
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/feather/feather.css");?>>
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/ti-icons/css/themify-icons.css");?>>
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/css/vendor.bundle.base.css");?>>
+  <link rel="stylesheet" href=<?php echo base_url("css/bootstrap/bootstrap.min.css");?>>
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -44,7 +45,18 @@
                 <div class="form-group">
                   <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="mot_de_passe_utilisateur2" placeholder="Confirmer Mot De Passe">
                 </div>
-                <div class="mb-4">
+                <div class="form-group">
+                  
+                  <?php foreach($genres as $genre){ ?>
+                  <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="genre" value="<?php echo $genre->id_genre;?>" id="optionsRadios1">
+                          <?php echo $genre->designation_genre; ?>
+                        <i class="input-helper"></i>
+                      </label>
+                    </div>
+                    <?php } ?>
+
                 </div>
                 <div class="mt-3">
                   <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Enregistrer">
