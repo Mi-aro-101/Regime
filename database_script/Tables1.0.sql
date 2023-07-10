@@ -65,6 +65,7 @@ create table if not exists Poids_statut(
     id_poids_statut INTEGER PRIMARY KEY AUTO_INCREMENT,
     statut_poids INTEGER NOT NULL,
     reference_poids VARCHAR(50) NOT NULL
+    statut_poids INTEGER NOT NULL
 );
 
 create table if not exists Imc(
@@ -72,6 +73,8 @@ create table if not exists Imc(
     intervalle_debut DOUBLE PRECISION NOT NULL,
     intervalle_fin DOUBLE PRECISION NOT NULL,
     designation_imc VARCHAR(50) NOT NULL
+    statut_imc INTEGER NOT NULL,
+    reference_imc VARCHAR(50) NOT NULL
 );
 
 create table if not exists Regime_plat(
@@ -81,6 +84,7 @@ create table if not exists Regime_plat(
     id_imc INTEGER REFERENCES Imc(id_imc),
     id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut),
     quantite DOUBLE PRECISION NOT NULL
+    id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut)
 );
 
 create table if not exists Regime_sport(
@@ -91,6 +95,7 @@ create table if not exists Regime_sport(
     id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut),
     repetition INTEGER NOT NULL,
     serie INTEGER NOT NULL
+    id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut)
 );
 
 create table if not exists Regime_journalier(
