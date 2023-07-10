@@ -2,24 +2,26 @@
 --username : root
 --password : root
 
+create table if not exists Genre(
+    id_genre INTEGER PRIMARY KEY AUTO_INCREMENT,
+    statut_genre BOOLEAN NOT NULL,
+    -- Ito ovaina MIAROOOO A
+    designation_genre VARCHAR(30) NOT NULL
+);
+
 create table if not exists Utilisateur(
     id_utilisateur INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_genre INTEGER REFERENCES Genre(id_genre),
     nom_utilisateur VARCHAR(21) NOT NULL,
     mail_utilisateur VARCHAR(50) NOT NULL,
     mot_de_passe_utilisateur VARCHAR(50) NOT NULL,
     statut_utilisateur INT NOT NULL -- 1 : utilisateur; 11 : admin
 );
 
-create table if not exists Genre(
-    id_genre INTEGER PRIMARY KEY AUTO_INCREMENT,
-    statut_genre INT NOT NULL,
-    designation VARCHAR(30) NOT NULL
-);
 
 create table if not exists Completion(
     id_completion INTEGER PRIMARY KEY AUTO_INCREMENT,
     id_utilisateur INTEGER REFERENCES Utilisateur(id_utilisateur),
-    id_genre INTEGER REFERENCES Genre(id_genre),
     poids DOUBLE PRECISION NOT NULL,
     taille INTEGER NOT NULL
 );
