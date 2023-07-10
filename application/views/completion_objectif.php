@@ -14,6 +14,10 @@
                         <label for="exampleInputEmail1">Taille</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" name="taille" placeholder="Taille">
                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Date d'insertion</label>
+                        <input type="date" class="form-control" id="exampleInputUsername1" name ="date_suivi" placeholder="Poids">
+                    </div>
                 </div>
             </div>
     </div>
