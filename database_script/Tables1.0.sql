@@ -5,7 +5,6 @@
 create table if not exists Genre(
     id_genre INTEGER PRIMARY KEY AUTO_INCREMENT,
     statut_genre BOOLEAN NOT NULL,
-    -- Ito ovaina MIAROOOO A
     designation_genre VARCHAR(30) NOT NULL
 );
 
@@ -37,4 +36,34 @@ create table if not exists Objectifs_utilisateur(
     id_objectif INTEGER REFERENCES Objectif(id_objectif),
     id_utilisateur INTEGER REFERENCES Utilisateur(id_utilisateur),
     poids DOUBLE PRECISION
+);
+
+create table if not exists Programme(
+    id_programme INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_utilisateur INTEGER REFERENCES Utilisateur(id_utilisateur),
+    duree INT NOT NULL -- En semaine
+);
+
+create table if not exists Plat(
+    id_plat INTEGER PRIMARY KEY AUTO_INCREMENT,
+    designation_plat VARCHAR(50) NOT NULL
+);
+
+create table if not exists Sport(
+    id_sport INTEGER PRIMARY KEY AUTO_INCREMENT,
+    designation_sport VARCHAR(50) NOT NULL
+);
+
+create table if not exists Poids_statut(
+    id_poids_statut INTEGER PRIMARY KEY AUTO_INCREMENT,
+    statut_poids INTEGER NOT NULL,
+
+);
+
+create table if not exists Imc(
+    id_imc INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_plat INTEGER REFERENCES Plat(id_plat),
+    id_objectif INTEGER REFERENCES Objectif(id_objectif),
+    id_imc INTEGER REFERENCES Imc(id_imc),
+    id_poids_statut INTEGER REFERENCES 
 );
