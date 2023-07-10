@@ -64,7 +64,7 @@ create table if not exists Sport(
 create table if not exists Poids_statut(
     id_poids_statut INTEGER PRIMARY KEY AUTO_INCREMENT,
     statut_poids INTEGER NOT NULL,
-    reference_poids VARCHAR(50) NOT NULL
+    reference_poids VARCHAR(50) NOT NULL,
     statut_poids INTEGER NOT NULL
 );
 

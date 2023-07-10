@@ -72,5 +72,14 @@ class Utilisateur extends CI_Controller {
             redirect(base_url());
         }
     }
+
+    /**
+     * Decconexion function
+     */
+    public function deconnecter(){
+        session_start();
+        session_destroy();
+        redirect(base_url());
+    }
 	
 }

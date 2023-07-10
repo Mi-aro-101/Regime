@@ -10,7 +10,7 @@ insert into Utilisateur (nom_utilisateur, mail_utilisateur, mot_de_passe_utilisa
     ('Erica', 'erica@gmail.com', '222', 1,2),
     ('To', 'to@gmail.com', '333', 1,1);
 
-insert into Completion (id_utilisateur,poids_utilisateur,taille) values 
+insert into Completion (id_utilisateur,poids_completion,taille) values 
     (1,70,155),
     (2,90,170),
     (3,60,165),

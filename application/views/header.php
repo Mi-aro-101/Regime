@@ -36,10 +36,10 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src=<?php echo base_url("image/health-weight.svg");?> alt="profile"/>
+              <img src=<?php echo base_url("image/logout.jpg");?> alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
+              <a class="dropdown-item" href=<?php echo site_url("utilisateur/deconnecter");?>>
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -83,7 +83,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="<?php echo site_url("Calendrier_Programme/calendrier");?>" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Programme</span>
             </a>
