@@ -101,7 +101,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="tables">
+            <a class="nav-link" href=<?php echo site_url("porte_feuille_utilisateur");?>>
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">Porte Monnaie</span>
             </a>
