@@ -10,7 +10,7 @@ insert into Utilisateur (nom_utilisateur, mail_utilisateur, mot_de_passe_utilisa
     ('Erica', 'erica@gmail.com', '222', 1,2),
     ('To', 'to@gmail.com', '333', 1,1);
 
-insert into Completion (id_utilisateur,poids,taille) values 
+insert into Completion (id_utilisateur,poids_utilisateur,taille) values 
     (1,70,155),
     (2,90,170),
     (3,60,165),
@@ -21,7 +21,7 @@ insert into Objectif (statut_objectif,reference_objectif) values
     (1,'Perdre du poids'),
     (5,'Prendre du poids');
 
-insert into Objectifs_utilisateur (id_objectif,id_utilisateur,poids) values 
+insert into Objectifs_utilisateur (id_objectif,id_utilisateur,poids_objectif) values 
     (1,1,9),
     (1,2,15),
     (1,3,5),
