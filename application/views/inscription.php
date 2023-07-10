@@ -26,9 +26,9 @@
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
-                <img src=<?php echo base_url("image/logo.svg");?> alt="logo">
-              </div>
+              <center><div class="brand-logo">
+                <img src=<?php echo base_url("image/health-weight.svg");?> alt="logo">
+              </div></center>
               <h4>Nouveau ?</h4>
               <h6 class="font-weight-light">Inscrivez-vous</h6>
               <form class="pt-3" action=<?php echo site_url("utilisateur/store");?> method="post">

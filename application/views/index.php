@@ -27,8 +27,8 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src=<?php echo base_url("image/logo.svg");?> alt="logo">
-              </div>
+                <center><img src=<?php echo base_url("image/health-weight.svg");?> alt="logo">
+              </div></center>
               <h4 class="font-weight-light">Connectez-vous pour continuer</h4>
               <form class="pt-3" action=<?php echo site_url("utilisateur/authentifier") ;?> method="post">
                 <div class="form-group">

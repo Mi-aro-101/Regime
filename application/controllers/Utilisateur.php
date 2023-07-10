@@ -39,6 +39,7 @@ class Utilisateur extends CI_Controller {
         $data['mail_utilisateur'] = $_POST["mail_utilisateur"];
         $data['mot_de_passe_utilisateur'] = $_POST["mot_de_passe_utilisateur1"];
         $password2 = $_POST["mot_de_passe_utilisateur2"];
+        $data['statut_utilisateur'] = 1;
 
         if($this->verifier_mdp($data['mot_de_passe_utilisateur'], $password2)) {
             $this->utilisateur_model->insert('Utilisateur', $data);
