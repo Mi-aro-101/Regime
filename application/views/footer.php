@@ -20,25 +20,25 @@
   <!-- container-scroller -->
   
   <!-- plugins:js -->
-  <script src=<?php echo base_url("css/vendors/js/vendor.bundle.base.js");?>></script>
+  <script src=<?php echo base_url("vendors/js/vendor.bundle.base.js");?>></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src=<?php echo base_url("css/vendors/chart.js/Chart.min.js");?>></script>
+  <script src=<?php echo base_url("vendors/chart.js/Chart.min.js");?>></script>
   <script src=<?php echo base_url("css/vendors/datatables.net/jquery.dataTables.js");?>></script>
   <script src=<?php echo base_url("css/vendors/datatables.net-bs4/dataTables.bootstrap4.js");?>></script>
   <script src=<?php echo base_url("css/js/dataTables.select.min.js");?>></script>
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src=<?php echo base_url("css/js/off-canvas.js");?>></script>
-  <script src=<?php echo base_url("css/js/hoverable-collapse.js");?>></script>
-  <script src=<?php echo base_url("css/js/template.js");?>></script>
-  <script src=<?php echo base_url("css/js/settings.js");?>></script>
-  <script src=<?php echo base_url("css/js/todolist.js");?>></script>
+  <script src=<?php echo base_url("js/off-canvas.js");?>></script>
+  <script src=<?php echo base_url("js/hoverable-collapse.js");?>></script>
+  <script src=<?php echo base_url("js/template.js");?>></script>
+  <script src=<?php echo base_url("js/settings.js");?>></script>
+  <script src=<?php echo base_url("js/todolist.js");?>></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src=<?php echo base_url("css/js/dashboard.js");?>></script>
-  <script src=<?php echo base_url("css/js/Chart.roundedBarCharts.js");?>></script> 
+  <script src=<?php echo base_url("js/dashboard.js");?>></script>
+  <script src=<?php echo base_url("js/Chart.roundedBarCharts.js");?>></script> 
   <!-- End custom js for this page-->
 </body>
 
