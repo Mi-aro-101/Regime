@@ -85,7 +85,6 @@ create table if not exists Regime_plat(
     id_imc INTEGER REFERENCES Imc(id_imc),
     id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut),
     quantite DOUBLE PRECISION NOT NULL
-    id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut)
 );
 
 create table if not exists Regime_sport(
@@ -96,7 +95,6 @@ create table if not exists Regime_sport(
     id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut),
     repetition INTEGER NOT NULL,
     serie INTEGER NOT NULL
-    id_poids_statut INTEGER REFERENCES Poids_statut(id_poids_statut)
 );
 
 create table if not exists Regime_journalier(
