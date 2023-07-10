@@ -19,5 +19,18 @@ class Completion extends CI_Controller {
         $this->load->view('footer.php');
     }
     
+    public function insertion_objectif(){
+        $data_completion['id_utilisateur'] = $_SESSION['utilisateur']->id_utilisateur;
+        $data_completion['poids_utilisateur'] = $_POST['poids_utilisateur'];
+        $data_completion['taille'] = $_POST['taille'];
 
+        $data_objectif['id_utilisateur'] = $_SESSION['utilisateur']->id_utilisateur;
+        $data_objectif['id_objectif'] = $_POST['id_objectif'];
+        $data_objectif['poids_objectif'] = $_POST['poids_objectif'];
+
+        $this->completion_model->insert('Completion',$data_completion);
+        $this->completion_model->insert('Objectifs_utilisateur',$data_objectif);
+
+        $this->load->view('suivi_poids');
+    }
 }
