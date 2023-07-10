@@ -62,7 +62,7 @@ class Completion extends CI_Controller {
         $data_objectif['poids_objectif'] = $_POST['poids_objectif'];
 
         $data_suivis['id_utilisateur'] = $_SESSION['utilisateur']->id_utilisateur;
-        $data_suivis['poids_suivi'] = $_POST['poids_objectif'];
+        $data_suivis['poids_suivi'] = $_POST['poids_completion'];
         $data_suivis['date_suivi'] = $_POST['date_suivi'];
         $data_suivis['commentaire_suivi'] = 'Premier jour';
 
