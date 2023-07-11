@@ -16,7 +16,7 @@ class Porte_feuille_utilisateur extends CI_Controller {
             $this->load->view("creer_porte_feuille");
         }
         else{
-            $codes['codes'] = $this->code_model->get_code('Code');
+            $codes['codes'] = $this->code_model->get_code_not_set();
             $this->load->view("charger_code", $codes);
         }
         $this->load->view('footer');
@@ -29,7 +29,29 @@ class Porte_feuille_utilisateur extends CI_Controller {
         redirect(site_url("porte_feuille_utilisateur"));
     }
 
+    /**
+     * check if k is in the array code
+     */
+    public function k_in_array($k, $array){
+        $result = false;
+        foreach($array as $arr){
+            if($k == $arr['id_code']){
+                $result = true;
+                break;
+            }
+        }
+
+        return $result;
+    }
+
     public function demander_code($id_code){
+
+        $codes = $this->code_model->get_code_not_set();
+        if($this->k_in_array($k, $array)){
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">Vous avez déjà envoyer une demande à cette code ou vous avez déjà pris.</div>');
+            redirect(site_url("porte_feuille_utilisateur"));
+        }
+
         $data['id_code'] = $id_code;
         $data['id_utilisateur'] = $_SESSION['utilisateur']->id_utilisateur;
         // Get now date 
