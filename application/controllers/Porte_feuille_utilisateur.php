@@ -6,12 +6,21 @@ class Porte_feuille_utilisateur extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model("porte_feuille_model");
-        $this->load->model("code_model");
+        $this->load->model("backoffice/code_model");
+    }
+
+    public function get_header(){
+        if($_SESSION['utilisateur']->statut_utilisateur == 11){
+            $this->load->view("backoffice/header_admin");
+        }
+        else{
+            $this->load->view("header");
+        }
     }
 
     public function index(){
         $mypocket = $this->porte_feuille_model->get_by_utilisateur('Porte_feuille_utilisateur', $_SESSION['utilisateur']->id_utilisateur);
-        $this->load->view('header');
+        $this->get_header();
         if($mypocket == null){
             $this->load->view("creer_porte_feuille");
         }

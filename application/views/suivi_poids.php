@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,13 +35,13 @@
                     <div class="form-group row">
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Poids actuel : </label>
                       <div class="col-sm-9">
-                        <strong><label for="exampleInputUsername2" class="col-sm-4 col-form-label"><?php echo $suivis[count($suivis)-3]['poids_suivi'];?></label></strong>
+                        <strong><label for="exampleInputUsername2" class="col-sm-4 col-form-label"><?php echo $suivis[count($suivis)-1]['poids_suivi'];?></label></strong>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label">I.M.C : </label>
                       <div class="col-sm-9">
-                        <strong><label for="exampleInputUsername2" class="col-sm-4 col-form-label"><?php echo $imc[0];?>(<?php echo $imc[1];?>)</label></strong>
+                        <strong><label for="exampleInputUsername2" class="col-sm-4 col-form-label"><?php echo $imc[0];?> (<?php echo $imc[1];?>)</label></strong>
                       </div>
                     </div>
                   </form>

@@ -9,8 +9,18 @@ class Accueil extends CI_Controller {
         $this->load->library('session');
     }
 
+    public function get_header(){
+        if($_SESSION['utilisateur']->statut_utilisateur == 11){
+            $this->load->view("backoffice/header_admin");
+        }
+        else{
+            $this->load->view("header");
+        }
+    }
+
 	public function accueil(){
-        $this->load->view('header');
+
+        $this->get_header();
         $this->load->view('footer');
     }
 	
