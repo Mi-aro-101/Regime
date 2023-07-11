@@ -22,5 +22,29 @@ class Confirmation_code extends CI_Controller {
         redirect(site_url("backoffice/Code/nouveau_code"));
 
     }
+
+    public function acceptation_code(){
+        $data['id_code'] = $_GET['id_code'];
+        $data['id_utilisateur'] = $_GET['id_utilisateur'];
+        $data['montant']= $_GET['montant'];
+        $this->Confirmation_code_model->confirmation_code($data['id_code'],$data['id_utilisateur'],$data['montant']);
+        redirect(site_url("backoffice/Confirmation_code/confirmation_code"));
+    }
+
+    public function refus_code(){
+        $data['id_code'] = $_GET['id_code'];
+        $data['id_utilisateur'] = $_GET['id_utilisateur'];
+        // $data['montant']= $_POST['montant'];
+        $this->Confirmation_code_model->refus_code($data['id_code'],$data['id_utilisateur']);
+        redirect(site_url("backoffice/Confirmation_code/confirmation_code"));
+    }
+
+    public function get_all_confirmation(){
+        $data = array();
+        $data['donnees'] = $this->Confirmation_code_model->get_all_confirmation();
+        $this->load->view('backoffice/header_admin');
+        $this->load->view("backoffice/confirmation_code",$data);
+        $this->load->view('footer');
+    }
 	
 }
