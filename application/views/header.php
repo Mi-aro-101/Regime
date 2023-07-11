@@ -90,8 +90,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="form-elements">
-              <i class="mdi mdi-account-card-details menu-icon"></i>
+            <a class="nav-link"  href="#">
+              <i class="icon-columns menu-icon"></i>
               <span class="menu-title">A propos</span>
             </a>
           </li>
