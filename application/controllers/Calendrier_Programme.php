@@ -6,7 +6,7 @@ class Calendrier_Programme extends CI_Controller {
         parent::__construct();
         $this->load->model("Accueil_model");
         $this->load->model("Calendrier_model");
-        $this->load->model("programme_model");
+        $this->load->model("Programme_model");
     }
 
     public function get_header(){
@@ -19,6 +19,9 @@ class Calendrier_Programme extends CI_Controller {
     }
 
 	public function calendrier(){
+        // $data = array();
+        // $data['donnees'] = $this->Programme_model->generer($_SESSION['utilisateur']);
+        // $this->load->view('calendrier_programme',$data);
         $this->load->view('calendrier_programme');
         $this->get_header();
         $this->load->view('footer');
@@ -52,5 +55,7 @@ class Calendrier_Programme extends CI_Controller {
                 echo $str1;
             }
         }
+
+        
     }
 }
