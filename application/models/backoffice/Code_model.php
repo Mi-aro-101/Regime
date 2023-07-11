@@ -25,4 +25,6 @@ class Code_model extends CI_Model
 
         return $code;
     }
+
+    // Inty Miaro a
 }

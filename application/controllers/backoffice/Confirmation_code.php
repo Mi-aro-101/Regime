@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Code extends CI_Controller {
+class Confirmation_code extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        $this->load->model("backoffice/Code_model");
+        // $this->load->model("backoffice/Confirmation_code_model");
     }
 
     public function get_header(){
@@ -17,9 +17,9 @@ class Code extends CI_Controller {
         }
     }
 
-	public function nouveau_code(){
+	public function confirmation_code(){
         $this->get_header();
-        $this->load->view("backoffice/nouveau_code");
+        $this->load->view("backoffice/confirmation_code");
         $this->load->view('footer');
     }
 

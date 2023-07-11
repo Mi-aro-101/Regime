@@ -107,6 +107,30 @@
               <span class="menu-title">Porte Monnaie</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href=<?php echo site_url("backoffice/repas");?>>
+              <i class="mdi mdi-food-fork-drink menu-icon"></i>
+              <span class="menu-title">Plat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=<?php echo site_url("backoffice/sport");?>>
+              <i class="mdi mdi-football menu-icon"></i>
+              <span class="menu-title">Sport</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=<?php echo site_url("backoffice/parametre_plat");?>>
+              <i class="mdi mdi-flask-outline menu-icon"></i>
+              <span class="menu-title">Parametre plat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=<?php echo site_url("backoffice/parametre_sport");?>>
+              <i class="mdi mdi-heart-pulse menu-icon"></i>
+              <span class="menu-title">Parametre sport</span>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- partial -->

@@ -76,6 +76,25 @@ class Utilisateur extends CI_Controller {
     }
 
     /**
+     * Check if the password and mail match the credentials
+     */
+    public function authentifier_admin(){
+        $mail = $_POST["mail_utilisateur"];
+        $password = $_POST["mot_de_passe_utilisateur"];
+
+        $utilisateur = $this->utilisateur_model->get_utilisateur_where('Utilisateur', $mail, $password, 11);
+        
+        if($utilisateur != null){
+            $_SESSION['utilisateur']= $utilisateur;
+            redirect(site_url("Completion"));
+        }
+        else{
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">Mot de passe ou mail invalide.</div>');
+            redirect(base_url());
+        }
+    }
+
+    /**
      * Decconexion function
      */
     public function deconnecter(){

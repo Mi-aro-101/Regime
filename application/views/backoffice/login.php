@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+  <title>Admin</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/feather/feather.css");?>>
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/ti-icons/css/themify-icons.css");?>>
@@ -29,24 +29,18 @@
               <div class="brand-logo">
                 <center><img src=<?php echo base_url("image/health-weight.svg");?> alt="logo">
               </div></center>
-              <h4 class="font-weight-light">Connectez-vous pour continuer</h4>
-              <form class="pt-3" action=<?php echo site_url("utilisateur/authentifier") ;?> method="post">
+              <center><h4 class="card-title text-info">Bienvenue ADMIN</h4></center>
+              <form class="pt-3" action=<?php echo site_url("utilisateur/authentifier_admin") ;?> method="post">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="mail_utilisateur" placeholder="Mail" value="benja@gmail.com">
+                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="mail_utilisateur" placeholder="Mail" value="itu@gmail.com">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="mot_de_passe_utilisateur" value="111" placeholder="Mot de Passe">
+                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="mot_de_passe_utilisateur" value="123" placeholder="Mot de Passe">
                 </div>
                 <div class="mt-3">
                   <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Se Connecter">
                 </div>
                 <?php echo $this->session->flashdata('message'); ?>
-                <div class="text-center mt-4 font-weight-light">
-                Vous n'avez pas encore de compte? <a href=<?php echo site_url("utilisateur/inscription");?> class="text-primary">S'inscrire</a>
-                </div>
-                <div class="text-center mt-4 font-weight-light">
-                Ou vous etes un <a href=<?php echo site_url("backoffice/login");?> class="text-primary">Admin</a>
-                </div>
               </form>
             </div>
           </div>
