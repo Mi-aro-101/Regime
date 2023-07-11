@@ -92,7 +92,7 @@
           <li class="nav-item">
             <a class="nav-link"  href=<?php echo site_url("Calendrier_Programme/testProgramme");?> >
               <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">A propos</span>
+              <span class="menu-title">Pdf Programme</span>
             </a>
           </li>
           <li class="nav-item">
