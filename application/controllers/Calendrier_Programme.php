@@ -14,5 +14,9 @@ class Calendrier_Programme extends CI_Controller {
         $this->load->view('header');
         $this->load->view('footer');
     }
-	
+    
+	public function testProgramme(){
+        $this->load->view('header');
+        $this->load->view('footer');
+    }
 }
