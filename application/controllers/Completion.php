@@ -54,15 +54,22 @@ class Completion extends CI_Controller {
     
     public function insertion_objectif(){
         $data_completion['id_utilisateur'] = $_SESSION['utilisateur']->id_utilisateur;
-        $data_completion['poids_utilisateur'] = $_POST['poids_utilisateur'];
+        $data_completion['poids_utilisateur'] = $_POST['poids_completion'];
         $data_completion['taille'] = $_POST['taille'];
 
         $data_objectif['id_utilisateur'] = $_SESSION['utilisateur']->id_utilisateur;
         $data_objectif['id_objectif'] = $_POST['id_objectif'];
         $data_objectif['poids_objectif'] = $_POST['poids_objectif'];
 
+        $data_suivis['id_utilisateur'] = $_SESSION['utilisateur']->id_utilisateur;
+        $data_suivis['poids_suivi'] = $_POST['poids_objectif'];
+        $data_suivis['date_suivi'] = $_POST['date_suivi'];
+        $data_suivis['commentaire_suivi'] = 'Premier jour';
+
         $this->completion_model->insert('Completion',$data_completion);
         $this->completion_model->insert('Objectifs_utilisateur',$data_objectif);
+        $this->suivi_poids_model->insert('Suivi_poids',$data_suivis);
+
 
         $this->load->view('suivi_poids');
     }

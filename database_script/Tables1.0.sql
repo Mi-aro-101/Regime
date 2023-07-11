@@ -71,9 +71,7 @@ create table if not exists Imc(
     id_imc INTEGER PRIMARY KEY AUTO_INCREMENT,
     intervalle_debut DOUBLE PRECISION NOT NULL,
     intervalle_fin DOUBLE PRECISION NOT NULL,
-    designation_imc VARCHAR(50) NOT NULL,
-    statut_imc INTEGER NOT NULL,
-    reference_imc VARCHAR(50) NOT NULL
+    designation_imc VARCHAR(50) NOT NULL
 );
 
 create table if not exists Regime_plat(
