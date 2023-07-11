@@ -20,6 +20,7 @@
   <link rel="stylesheet" href=<?php echo base_url("css/vertical-layout-light/style.css");?>>
   <!-- endinject -->
   <link rel="shortcut icon" href=<?php echo base_url("css/images/favicon.png");?> />
+  <link rel="stylesheet" href=<?php echo base_url("vendors/mdi/css/materialdesignicons.min.css");?>>
 </head>
 <body>
   <div class="container-scroller">
@@ -78,31 +79,31 @@
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" href=<?php echo site_url("completion"); ?>>
-              <i class="icon-grid menu-icon"></i>
+              <i class="mdi mdi-account menu-icon"></i>
               <span class="menu-title">Mon profil</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href=<?php echo site_url("Calendrier_Programme/calendrier");?>>
-              <i class="icon-layout menu-icon"></i>
+              <i class="mdi mdi-calendar-clock menu-icon"></i>
               <span class="menu-title">Programme</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="form-elements">
-              <i class="icon-columns menu-icon"></i>
+              <i class="mdi mdi-account-card-details menu-icon"></i>
               <span class="menu-title">A propos</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href=<?php echo site_url("suivi");?>>
-              <i class="icon-bar-graph menu-icon"></i>
+              <i class="mdi mdi-bookmark menu-icon"></i>
               <span class="menu-title">Suivie</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href=<?php echo site_url("porte_feuille_utilisateur");?>>
-              <i class="icon-grid-2 menu-icon"></i>
+              <i class="mdi mdi-wallet-travel menu-icon"></i>
               <span class="menu-title">Porte Monnaie</span>
             </a>
           </li>
