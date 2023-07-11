@@ -8,6 +8,7 @@ class Completion extends CI_Controller {
         $this->load->model("completion_model");
         $this->load->model("objectif_model");
         $this->load->model("suivi_poids_model");
+        $this->load->model("programme_model");
     }
 
     public function assign_poids($suivis){
@@ -32,6 +33,17 @@ class Completion extends CI_Controller {
         return $valiny;
     }
 
+    public function calcul_imc($suivi){
+        $poids_actuel = $suivi[count($suivi)-3]['poids_suivi'];
+        $taille_m_carre = ($suivis[0]['taille']/100)*($suivis[0]['taille']/100);
+        $imc =  $poids_actuel/$taille_m_carre;
+        $imc_real_number = number_format($imc, 2);
+        $ref = $this->programme_model->get_reference_imc(imc_real_number);
+        $ref = $ref[3];
+
+        return [$imc_real_number, $ref];
+    }
+
     public function index(){
         $utilisateur_completion = $this->completion_model->get_completion_where('Completion', $_SESSION['utilisateur']->id_utilisateur);
         $objectifs['objectifs'] = $this->objectif_model->get_objectif('Objectif');
@@ -46,6 +58,7 @@ class Completion extends CI_Controller {
             $suivis['poids_suivis'] = json_encode($suivi_poids);
             $suivis['date_suivis'] = json_encode($date);
             $suivis['suivis'] = $suivis;
+            $suivi['imc'] = $this->calcul_imc($suivis);
 
             
             $this->load->view('suivi_poids', $suivis);
