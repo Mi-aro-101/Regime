@@ -1,7 +1,3 @@
---database name : Regime
---username : root
---password : root
-
 create table if not exists Genre(
     id_genre INTEGER PRIMARY KEY AUTO_INCREMENT,
     statut_genre BOOLEAN NOT NULL,

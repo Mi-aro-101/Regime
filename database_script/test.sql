@@ -21,3 +21,11 @@ insert into Utilisateur (nom_utilisateur, mail_utilisateur, mot_de_passe_utilisa
 insert into Genre(statut_genre, designation_genre) values
     (1, 'Femme'),
     (0, 'Homme');
+
+    -- select utilisateur join with suivi
+select u.*, sp.*
+    from Utilisateur u join Suivi_poids sp on u.id_utilisateur=sp.id_utilisateur
+
+--Select plat avec moment_journee
+select p.*, mj.reference_moment_journee
+    from Plat p join Moment_journee mj on p.id_moment_journee = mj.id_moment_journee
