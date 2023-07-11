@@ -78,13 +78,13 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("completion"); ?>>
+            <a class="nav-link" href=<?php echo site_url("#"); ?>>
               <i class="mdi mdi-account menu-icon"></i>
               <span class="menu-title">Mon profil</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("Calendrier_Programme/calendrier");?>>
+            <a class="nav-link" href=<?php echo site_url("#");?>>
               <i class="mdi mdi-calendar-clock menu-icon"></i>
               <span class="menu-title">Programme</span>
             </a>

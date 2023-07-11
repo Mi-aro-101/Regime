@@ -34,34 +34,47 @@ class Completion extends CI_Controller {
     }
 
     public function calcul_imc($suivi){
-        $poids_actuel = $suivi[count($suivi)-3]['poids_suivi'];
-        $taille_m_carre = ($suivis[0]['taille']/100)*($suivis[0]['taille']/100);
+        $poids_actuel = $suivi[count($suivi)-1]['poids_suivi'];
+        $taille_m_carre = ($suivi[0]['taille']/100)*($suivi[0]['taille']/100);
         $imc =  $poids_actuel/$taille_m_carre;
         $imc_real_number = number_format($imc, 2);
-        $ref = $this->programme_model->get_reference_imc(imc_real_number);
-        $ref = $ref[3];
+        $ref = $this->programme_model->get_reference_imc($imc_real_number);
+        $refi = $ref['designation_imc'];
 
-        return [$imc_real_number, $ref];
+        return [$imc_real_number, $refi];
+    }
+
+    public function get_header(){
+        if($_SESSION['utilisateur']->statut_utilisateur == 11){
+            $this->load->view("backoffice/header_admin");
+        }
+        else{
+            $this->load->view("header");
+        }
     }
 
     public function index(){
         $utilisateur_completion = $this->completion_model->get_completion_where('Completion', $_SESSION['utilisateur']->id_utilisateur);
         $objectifs['objectifs'] = $this->objectif_model->get_objectif('Objectif');
         $suivis = $this->suivi_poids_model->get_Suivi_poids();
-        $this->load->view('header.php');
+        $this->get_header();
         if($suivis == null){
             $this->load->view('completion_objectif', $objectifs);
         }
         else{
+            $suiv['imc'] = $this->calcul_imc($suivis);
             $suivi_poids = $this->assign_poids($suivis);
             $date = $this->assign_date($suivis);
             $suivis['poids_suivis'] = json_encode($suivi_poids);
             $suivis['date_suivis'] = json_encode($date);
             $suivis['suivis'] = $suivis;
-            $suivi['imc'] = $this->calcul_imc($suivis);
+            // $suivi['imc'] = $this->calcul_imc($suivis);
+            $suiv['poids_suivis'] = json_encode($suivi_poids);
+            $suiv['date_suivis'] = json_encode($date);
+            $suiv['suivis'] = $suivis;
 
             
-            $this->load->view('suivi_poids', $suivis);
+            $this->load->view('suivi_poids', $suiv);
         }
         $this->load->view('footer.php');
     }

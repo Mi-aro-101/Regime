@@ -9,7 +9,7 @@ class Confirmation_code_model extends CI_Model
             $script = " select code_statut.id_utilisateur,utilisateur.nom_utilisateur,code.id_code ,code.code,code.montant,code_statut.date_envoi from code_statut
                     join code on code_statut.id_code = code.id_code
                     join utilisateur on code_statut.id_utilisateur = utilisateur.id_utilisateur
-                    WHERE code_statut.date_acceptation is null and code_statut.date_refus is null ORDER by code.id_code";
+                    WHERE code_statut.date_acceptation is null and code_statut.date_refus is null";
                     $query = $this->db->query($script);
 
                     $confirmation = array();

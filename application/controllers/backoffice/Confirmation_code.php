@@ -5,11 +5,20 @@ class Confirmation_code extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        // $this->load->model("backoffice/Confirmation_code_model");
+        $this->load->model("backoffice/Confirmation_code_model");
+    }
+
+    public function get_header(){
+        if($_SESSION['utilisateur']->statut_utilisateur == 11){
+            $this->load->view("backoffice/header_admin");
+        }
+        else{
+            $this->load->view("header");
+        }
     }
 
 	public function confirmation_code(){
-        $this->load->view('header');
+        $this->get_header();
         $this->load->view("backoffice/confirmation_code");
         $this->load->view('footer');
     }

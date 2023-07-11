@@ -9,8 +9,17 @@ class Suivi extends CI_Controller {
         $this->load->model("completion_model");
     }
 
+    public function get_header(){
+        if($_SESSION['utilisateur']->statut_utilisateur == 11){
+            $this->load->view("backoffice/header_admin");
+        }
+        else{
+            $this->load->view("header");
+        }
+    }
+
     public function index(){
-        $this->load->view("header");
+        $this->get_header();
         $completions = $this->completion_model->get_completion_where('Completion', $_SESSION['utilisateur']->id_utilisateur);
         if($completions == null){
             $this->load->view("suivi_null");
