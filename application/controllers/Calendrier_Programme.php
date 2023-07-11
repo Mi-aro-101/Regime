@@ -10,9 +10,18 @@ class Calendrier_Programme extends CI_Controller {
         $this->load->model("programme_model");
     }
 
+    public function get_header(){
+        if($_SESSION['utilisateur']->statut_utilisateur == 11){
+            $this->load->view("backoffice/header_admin");
+        }
+        else{
+            $this->load->view("header");
+        }
+    }
+
 	public function calendrier(){
         $this->load->view('calendrier_programme');
-        $this->load->view('header');
+        $this->get_header();
         $this->load->view('footer');
     }
     
