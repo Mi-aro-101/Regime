@@ -5,7 +5,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
   <!-- plugins:css --> 
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/feather/feather.css");?>>
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/ti-icons/css/themify-icons.css");?>>
@@ -108,7 +107,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("backoffice/plat");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/plat");?>
               <i class="mdi mdi-flask-outline menu-icon"></i>
               <span class="menu-title">Parametre plat</span>
             </a>

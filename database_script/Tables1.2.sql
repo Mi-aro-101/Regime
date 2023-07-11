@@ -7,16 +7,10 @@ create table Suivi_poids(
 );
 
 insert into Suivi_poids(id_utilisateur, poids_suivi, date_suivi, commentaire_suivi) values
-    (3, 60, '2023-06-10', 'Mon permier poids'),
+    (3, 60, '2023-07-01', 'Mon permier poids'),
     (3, 58, '2023-06-17', 'Presque'),
     (3, 57, '2023-06-24', 'Encore encore'),
     (3, 55, '2023-07-01', 'Arrive');
 
--- select utilisateur join with suivi
-select u.*, sp.*
-    from Utilisateur u join Suivi_poids sp on u.id_utilisateur=sp.id_utilisateur
 
---Select plat avec moment_journee
-select p.*, mj.reference_moment_journee
-    from Plat p join Moment_journee mj on p.id_moment_journee = mj.id_moment_journee
 

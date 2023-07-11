@@ -157,6 +157,10 @@ class Programme_model extends CI_Model
         $result = $this->db->insert($table,$data);
         return $result;
     }
+    public function get_by_id_utilisateur($table,$id_utilisateur) {
+        $result = $this->db->get_Where($table,['id_utilisateur' => $id_utilisateur])->row();
+        return $result;
+    }
 }
 
 ?>
