@@ -49,7 +49,6 @@ class Programme_model extends CI_Model
     public function get_reference_imc($imc_utilisateur) {
         $query = "Select * from Imc where intervalle_debut <= %s and intervalle_fin >= %s";
         $query = sprintf($query,$imc_utilisateur,$imc_utilisateur);
-        echo $query;
         $quest = $this->db->query($query);
         $result = $quest -> row_array();
         return $result;

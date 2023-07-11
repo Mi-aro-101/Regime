@@ -41,11 +41,11 @@ class Porte_feuille_utilisateur extends CI_Controller {
     /**
      * check if k is in the array code
      */
-    public function k_in_array($k, $array){
-        $result = false;
-        foreach($array as $arr){
-            if($k == $arr['id_code']){
-                $result = true;
+    public function k_in_array($k, $tab){
+        $result = 0;
+        foreach($tab as $arr){
+            if($k == $arr['id_utilisateur']){
+                $result = 1;
                 break;
             }
         }
@@ -56,7 +56,8 @@ class Porte_feuille_utilisateur extends CI_Controller {
     public function demander_code($id_code){
 
         $codes = $this->code_model->get_code_not_set();
-        if($this->k_in_array($k, $array)){
+
+        if($this->k_in_array($_SESSION['utilisateur']->id_utilisateur, $codes) == 1){
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Vous avez déjà envoyer une demande à cette code ou vous avez déjà pris.</div>');
             redirect(site_url("porte_feuille_utilisateur"));
         }

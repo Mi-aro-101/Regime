@@ -78,27 +78,27 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("completion"); ?>>
+            <a class="nav-link" href=<?php echo site_url("#"); ?>>
               <i class="mdi mdi-account menu-icon"></i>
               <span class="menu-title">Mon profil</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("Calendrier_Programme/calendrier");?>>
+            <a class="nav-link" href=<?php echo site_url("#");?>>
               <i class="mdi mdi-calendar-clock menu-icon"></i>
               <span class="menu-title">Programme</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="#">
+            <a class="nav-link"  href=<?php echo site_url("backoffice/Code/nouveau_code");?>>
               <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">A propos</span>
+              <span class="menu-title">Ajout de Code</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("suivi");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/confirmation_code/get_all_confirmation");?>>
               <i class="mdi mdi-bookmark menu-icon"></i>
-              <span class="menu-title">Suivie</span>
+              <span class="menu-title">Suivie liste des codes</span>
             </a>
           </li>
           <li class="nav-item">

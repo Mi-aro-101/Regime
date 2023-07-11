@@ -9,7 +9,7 @@
         }
 
         public function get_by_utilisateur($table, $id_utilisateur){
-            $result = $this->db->insert($table, ['id_utilisateur' => $id_utilisateur]);
+            $result = $this->db->get($table, ['id_utilisateur' => $id_utilisateur])->row();
             return $result;
         }
     }
