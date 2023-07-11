@@ -12,7 +12,7 @@
                 <div class="form-group row">
                     <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Plat : </label>
                     <div class="col-sm-9">
-                    <input type="text" class="form-control"  name="designation_plat" id="exampleInputUsername2" placeholder="Username">
+                    <input type="text" class="form-control"  name="designation_plat" id="exampleInputUsername2" placeholder="Designation plat">
                     </div>
                 </div>
                 <div class="form-group row">
