@@ -83,7 +83,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="<?php echo site_url("Calendrier_Programme/calendrier");?>" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" href=<?php echo site_url("Calendrier_Programme/calendrier");?>>
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Programme</span>
             </a>
@@ -111,6 +111,6 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          
+          <div id='calendar'></div>
         
 
