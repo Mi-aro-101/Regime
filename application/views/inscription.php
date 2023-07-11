@@ -45,6 +45,7 @@
                 <div class="form-group">
                   <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="mot_de_passe_utilisateur2" placeholder="Confirmer Mot De Passe">
                 </div>
+                
                 <div class="form-group">
                   
                   <?php foreach($genres as $genre){ ?>
