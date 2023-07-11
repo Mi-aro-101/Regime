@@ -65,6 +65,10 @@ class Completion extends CI_Controller {
             $suiv['imc'] = $this->calcul_imc($suivis);
             $suivi_poids = $this->assign_poids($suivis);
             $date = $this->assign_date($suivis);
+            $suivis['poids_suivis'] = json_encode($suivi_poids);
+            $suivis['date_suivis'] = json_encode($date);
+            $suivis['suivis'] = $suivis;
+            // $suivi['imc'] = $this->calcul_imc($suivis);
             $suiv['poids_suivis'] = json_encode($suivi_poids);
             $suiv['date_suivis'] = json_encode($date);
             $suiv['suivis'] = $suivis;

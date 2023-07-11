@@ -13,11 +13,11 @@ class Programme_model extends CI_Model
 
     public function generer ($id_utilisateur) {
 
-        $poids_objectif = $this->Objectif_Utilisateur_model->get_objectif_utilisateur('Objectif_utilisateur', $id_utilisateur);
-        $duree = $this-> calcul_duree_programme($id_utilisateur,$poids_objectif);
+        $poids_objectif = $this->Objectif_utilisateur_model->get_objectif_utilisateur('Objectifs_utilisateur', $id_utilisateur);
+        $duree = number_format($this-> calcul_duree_programme($id_utilisateur,$poids_objectif),0);
         $jourTotal = $duree *7;
         $result =array();
-        for($i=0; $i<$jourTotal; $i++) {
+        for($i=0; $i<=$jourTotal; $i++) {
             $result[] = $this->generer_un_jour($id_utilisateur);
         }
         return $result;
@@ -25,25 +25,24 @@ class Programme_model extends CI_Model
     public function generer_un_jour($id_utilisateur) {
         $imc_utilisateur = $this->calcul_imc_utilisateur($id_utilisateur);
         $imc_reference = $this->get_reference_imc($imc_utilisateur);
-        $id_imc = $imc_reference[0];
+        $id_imc = $imc_reference['id_imc']; 
         $id_poids_statut = $this->get_id_statut_poids($id_utilisateur);
        
         $id_objectif = $this ->get_objectif($id_utilisateur); 
         
         //generer des plats random du moment de la journee
-
-        $data['petit_dejeuner'] = $this->generer_plat(1,$id_objectif,$id_imc,$id_poids_statut);
-        $data['dejeuner'] = $this->generer_plat(2,$id_objectif,$id_imc,$id_poids_statut);
-        $data['diner'] = $this->generer_plat(3,$id_objectif,$id_imc,$id_poids_statut);
+        $data['petit_dejeuner'] = $this->generer_plat($id_objectif,$id_imc,$id_poids_statut,1);
+        $data['dejeuner'] = $this->generer_plat($id_objectif,$id_imc,$id_poids_statut,2);
+        $data['diner'] = $this->generer_plat($id_objectif,$id_imc,$id_poids_statut,3);
         //generer un sport
         $data['sport'] = $this->generer_sport($id_objectif,$id_imc,$id_poids_statut);
         return $data;
     }
     
     public function calcul_imc_utilisateur($id_utilisateur){
-        $result = $this->Completion_model->get_completion_where('Completion',['id_utilisateur' => $id_utilisateur])->result();
-        $taille = $result[1]/100;
-        $imc = $result[0]/ ($taille*$taille);
+        $result = $this->Completion_model->get_completion_where('Completion',$id_utilisateur);
+        $taille = ($result -> taille)/100;
+        $imc = ($result -> poids_completion)/ ($taille*$taille);
         return $imc;
     }
     
@@ -57,14 +56,14 @@ class Programme_model extends CI_Model
     }
 
     public function get_objectif($id_utilisateur) {
-        $result = $this->Objectif_Utilisateur_model->get_objectif_utilisateur('Objectif_utilisateur', $id_utilisateur);
-        $id_objectif = $result[1];
+        $result = $this->Objectif_utilisateur_model->get_objectif_utilisateur('Objectifs_utilisateur', $id_utilisateur);
+        $id_objectif = $result -> id_objectif;
 
         return $id_objectif;
     }
     public function get_id_statut_poids($id_utilisateur){
-        $result = $this->Objectif_Utilisateur_model->get_objectif_utilisateur('Objectif_utilisateur', $id_utilisateur);
-        $poids_objectif =  $result[3];
+        $result = $this->Objectif_utilisateur_model->get_objectif_utilisateur('Objectifs_utilisateur', $id_utilisateur);
+        $poids_objectif =  $result ->poids_objectif;
         $statut_poids_perdre = 0;
         if($poids_objectif < 10) {
             $statut_poids_perdre = 1;
@@ -77,20 +76,21 @@ class Programme_model extends CI_Model
     }
 
     public function calcul_duree_programme($id_utilisateur,$poids_objectif){
-        $result = $this->Objectif_Utilisateur_model->get_objectif_utilisateur('Objectif_utilisateur',$id_utilisateur);
-        $id_obj = $result['1'];
+        $result = $this->Objectif_utilisateur_model->get_objectif_utilisateur('Objectifs_utilisateur',$id_utilisateur);
+        $id_obj = $result ->id_objectif;
+        // echo $id_obj;
         if ($id_obj==1) {
-            $duree = $poids_objectif;
+            $duree = $result -> poids_objectif;
         }
         else{
-            $duree = $poids_objectif*2;
+            $duree = ($result -> poids_objectif)*2;
         }
         return $duree;
     }
 
     public function get_regimes_adequats($id_objectif){
         $regime = $this->Regime_plat_model->get_regime_plat_parid('Regime_plat',$id_objectif)->result();
-        
+        return $regime;
     }
 
 
@@ -104,12 +104,25 @@ class Programme_model extends CI_Model
                 on p.id_moment_journee = m.id_moment_journee
 
                 where p.id_moment_journee = %s and r.id_objectif = %s and r.id_imc=%s and id_poids_statut = %s");
-        $query = sprintf($query,$id_moment_journee,$id_objectif,$id_imc,$id_poids_statut);
-        $quest = $this->db->query($query);
-        $result = $quest -> row_array();
-        $random = rand(0,count($result))-1;
 
-        return $result[$random];
+        $query = sprintf($query,$id_moment_journee,$id_objectif,$id_imc,$id_poids_statut);
+        // echo $query;
+        $quest = $this->db->query($query);
+        $test = $quest->row_array();
+        $result = array();
+        $i =0;
+        if($test == null) {
+            throw new Exception("Programme non disponible pour votre imc", 1);
+            
+        } else {
+            foreach ($quest->result_array() as $row) {
+                $result[$i] = $row; 
+                $i++;
+            }
+            $random = rand(0,count($result)-1);
+            // return $result[$random]['designation_plat'];
+            return $result[$random];
+        }
     }
 
     public function generer_sport($id_objectif,$id_imc,$id_poids_statut){
@@ -123,11 +136,22 @@ class Programme_model extends CI_Model
                     on r.id_sport = p.id_sport 
             where  r.id_objectif = %s and r.id_imc=%s and id_poids_statut = %s ;");
         $query = sprintf($query,$id_objectif,$id_imc,$id_poids_statut);
-        $quest = $this->db->query($query);
-        $result = $quest -> row_array();
-        $random = rand(0,count($result))-1;
-
-        return $result[$random];
+        $quest = $this->db->query($query);$test = $quest->row_array();
+        $test = $quest->row_array();
+        $result = array();
+        $i =0;
+        if($test == null) {
+            throw new Exception("Programme non disponible pour votre imc", 1);
+            
+        } else {
+            foreach ($quest->result_array() as $row) {
+                $result[$i] = $row; 
+                $i++;
+            }
+            $random = rand(0,count($result)-1);
+            // return $result[$random]['designation_plat'];
+            return $result[$random];
+        }
     }
 
     public function inserer($table,$data){
