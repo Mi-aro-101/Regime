@@ -18,10 +18,18 @@ class Calendrier_Programme extends CI_Controller {
     
 	public function testProgramme(){
         $id_utilisateur = $_SESSION['utilisateur']->id_utilisateur;
-        $data = array();
-        $data['donnees'] = $this->programme_model->generer($id_utilisateur);
-        $this->load->view('testprogramme',$data);
-        $this->load->view('header');
-        $this->load->view('footer');
+        try {
+            $data = array();
+            $data['donnees'] = $this->programme_model->generer($id_utilisateur);
+            $this->load->view('testprogramme',$data);
+            $this->load->view('header');
+            $this->load->view('footer');
+        } catch (\Exception $e) {
+            if ($e -> getMessage() == 'Programme non disponible pour votre imc') {
+                $str1 = '<script language="javascript">alert("%s"); window.history.back();</script>';
+                $str1 = sprintf($str1, $e->getMessage());
+                echo $str1;
+            }
+        }
     }
 }
