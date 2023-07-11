@@ -77,15 +77,9 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("#"); ?>>
-              <i class="mdi mdi-account menu-icon"></i>
-              <span class="menu-title">Mon profil</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("#");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/Porte_feuille_admin/get_vola");?>>
               <i class="mdi mdi-calendar-clock menu-icon"></i>
-              <span class="menu-title">Programme</span>
+              <span class="menu-title">Porte Feuille</span>
             </a>
           </li>
           <li class="nav-item">
@@ -98,12 +92,6 @@
             <a class="nav-link" href=<?php echo site_url("backoffice/confirmation_code/get_all_confirmation");?>>
               <i class="mdi mdi-bookmark menu-icon"></i>
               <span class="menu-title">Suivie liste des codes</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("porte_feuille_utilisateur");?>>
-              <i class="mdi mdi-wallet-travel menu-icon"></i>
-              <span class="menu-title">Porte Monnaie</span>
             </a>
           </li>
           <li class="nav-item">

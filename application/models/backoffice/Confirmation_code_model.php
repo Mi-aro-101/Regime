@@ -37,8 +37,8 @@ class Confirmation_code_model extends CI_Model
             $sql2 = sprintf($refuser,$id_code,$id_utilisateur);
             $this->db->query($sql2);
 
-            $statut_transaction_utilisateur = 1;
-            $ajout_porte_feuille = "insert into porte_feuille_historique values (null,%d,%d,CURDATE())";
+            $statut_transaction_utilisateur = -1;
+            $ajout_porte_feuille = "insert into porte_feuille_application_historique values (null,%d,%d,CURDATE())";
             $sql3 = sprintf($ajout_porte_feuille,$montant,$statut_transaction_utilisateur);
             $this->db->query($sql3);
 
