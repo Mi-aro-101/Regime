@@ -5,11 +5,10 @@ class Programme_model extends CI_Model
 {
     public function __construct(){
         parent::__construct();
-        $this->load->model("objectif_utilisateur_model");
-        $this->load->model("regime_plat_model");
-        $this->load->model("poids_statut_model");
-
-        
+        $this->load->model("Objectif_Utilisateur_model");
+        $this->load->model("Regime_plat_model");
+        $this->load->model("Poids_statut_model");
+        $this->load->model("Completion_model");
     }
 
     public function generer ($id_utilisateur) {
@@ -71,7 +70,7 @@ class Programme_model extends CI_Model
         } else {
             $statut_poids_perdre = 5;
         }
-       $id_poids_statut = $this->poids_statut_model->get_id_poids_statut('Poids_statut',$statut_poids_perdre);
+       $id_poids_statut = $this->Poids_statut_model->get_id_poids_statut('Poids_statut',$statut_poids_perdre);
         
         return $id_poids_statut;
     }
@@ -89,7 +88,7 @@ class Programme_model extends CI_Model
     }
 
     public function get_regimes_adequats($id_objectif){
-        $regime = $this->regime_plat_model->get_regime_plat_parid('Regime_plat',$id_objectif)->result();
+        $regime = $this->Regime_plat_model->get_regime_plat_parid('Regime_plat',$id_objectif)->result();
         
     }
 
