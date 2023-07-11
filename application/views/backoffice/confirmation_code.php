@@ -9,18 +9,22 @@
                             <th>Id Client</th>
                             <th>Client</th>
                             <th>Code</th>
+                            <th>Montant</th>
                             <th>date d'envoi</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                            <td>Cl 123</td>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td><button class="btn btn-success btn-rounded btn-fw">Valider</button></td>
-                            <td><button class="btn btn-danger btn-rounded btn-fw">Refuser</button></td>
-                        </tr>
+                        <?php foreach ($donnees as $donnee){?>
+                            <tr>
+                                <td><h4><?php echo $donnee['id_utilisateur']; ?></h4></td>
+                                <td><h4><?php echo $donnee['nom_utilisateur']; ?></h4></td>
+                                <td><h4><?php echo $donnee['code']; ?></h4></td>
+                                <td><h4><?php echo $donnee['montant']; ?></h4></td>
+                                <td><h4><?php echo $donnee['date_envoi']; ?></h4></td>
+                                <td><button class="btn btn-success btn-rounded btn-fw" ><a href=<?php echo site_url("backoffice/Confirmation_code/acceptation_code").'?id_code='.$donnee['id_code'].'&id_utilisateur='.$donnee['id_utilisateur'].'&montant='.$donnee['montant'];?> style="text-decoration:none;color: white;">Valider</a></button></td>
+                                <td><button class="btn btn-danger btn-rounded btn-fw" ><a href=<?php echo site_url("backoffice/Confirmation_code/refus_code").'?id_code='.$donnee['id_code'].'&id_utilisateur='.$donnee['id_utilisateur'];?> style="text-decoration:none;color: white;">Refuser</a></button></td>
+                            </tr>
+                        <?php } ?>    
                       </tbody>
                     </table>
                   </div>
