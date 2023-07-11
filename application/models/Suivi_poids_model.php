@@ -22,10 +22,10 @@ class Suivi_poids_model extends CI_Model
     public function insert($table,$data) {
         $result = $this->db->insert($table,$data);
         return $result;
-        public function store($table, $data){
-            $result = $this->db->insert($table, $data);
-		    return $result;
-        }
+    }
+    public function store($table, $data){
+        $result = $this->db->insert($table, $data);
+        return $result;
     }
 }
 ?>

@@ -3,11 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Programme_model extends CI_Model 
 {
+    public function generer($id_utilisateur) {
+        $imc = calcul_imc_utilisateur($id_utilisateur);
+
+    }
     
     public function calcul_imc_utilisateur($id_utilisateur){
         $result = $this->Completion_model->get_completion_where('Completion',['id_utilisateur' => $id_utilisateur])->result();
         $imc = $result[0]/ ($result[1]*$result[1]);
         return $imc;
+    }
+    
+    public function get_reference_imc($imc_utilisateur) {
+        
     }
 
     public function check_objectif($id_utilisateur){
