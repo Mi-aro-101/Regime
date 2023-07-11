@@ -33,6 +33,69 @@ class Programme_model extends CI_Model
     }
 
 
+    public function generer_petit_dejeuner($id_objectif,$id_imc,$id_poids_statut){
+        $query = ("select r.id_regime_plat as id_regime_plat,r.id_plat as id_plat,r.id_objectif as id_objectif, r.id_imc as id_imc,r.id_poids_statut as id_poids_statut,r.quantite as quantite,
+                    p.designation_plat as designation_plat, p.id_moment_journee as id_moment_journee,m.reference_moment_journee  as reference_moment_journee
+                from Regime_plat as r
+                inner join Plat as p
+                on r.id_plat = p.id_plat 
+                inner join Moment_journee m
+                on p.id_moment_journee = m.id_moment_journee
+
+                where p.id_moment_journee = 1 and r.id_objectif = %s and r.id_imc=%s and id_poids_statut = %s");
+        $query = sprintf($query,$id_objectif,$id_imc,$id_poids_statut);
+        $quest = $this->db->query($query);
+        $result = $quest -> row_array();
+        return $result;
+    }
+
+    public function generer_dejeuner($id_objectif,$id_imc,$id_poids_statut){
+        $query = ("select r.id_regime_plat as id_regime_plat,r.id_plat as id_plat,r.id_objectif as id_objectif, r.id_imc as id_imc,r.id_poids_statut as id_poids_statut,r.quantite as quantite,
+                    p.designation_plat as designation_plat, p.id_moment_journee as id_moment_journee,m.reference_moment_journee  as reference_moment_journee
+                from Regime_plat as r
+                inner join Plat as p
+                on r.id_plat = p.id_plat 
+                inner join Moment_journee m
+                on p.id_moment_journee = m.id_moment_journee
+
+                where p.id_moment_journee = 2 and r.id_objectif = %s and r.id_imc=%s and id_poids_statut = %s");
+        $query = sprintf($query,$id_objectif,$id_imc,$id_poids_statut);
+        $quest = $this->db->query($query);
+        $result = $quest -> row_array();
+        return $result;
+    }
+    public function generer_dinner($id_objectif,$id_imc,$id_poids_statut){
+        $query = ("select r.id_regime_plat as id_regime_plat,r.id_plat as id_plat,r.id_objectif as id_objectif, r.id_imc as id_imc,r.id_poids_statut as id_poids_statut,r.quantite as quantite,
+                    p.designation_plat as designation_plat, p.id_moment_journee as id_moment_journee,m.reference_moment_journee  as reference_moment_journee
+                from Regime_plat as r
+                inner join Plat as p
+                on r.id_plat = p.id_plat 
+                inner join Moment_journee m
+                on p.id_moment_journee = m.id_moment_journee
+
+                where p.id_moment_journee = 3 and r.id_objectif = %s and r.id_imc=%s and id_poids_statut = %s");
+        $query = sprintf($query,$id_objectif,$id_imc,$id_poids_statut);
+        $quest = $this->db->query($query);
+        $result = $quest -> row_array();
+        return $result;
+    }
+
+    public function generer_sport($id_objectif,$id_imc,$id_poids_statut){
+        $query = ("
+            select  r.id_regime_sport as id_regime_sport,r.id_sport as id_sport,r.id_objectif as id_objectif, r.id_imc as id_imc,r.id_poids_statut as id_poids_statut,
+                    r.repetition as repetition,
+                    r.serie as serie,
+                    p.designation_sport as designation_sport
+            from Regime_sport as r
+                inner join Sport as p
+                    on r.id_sport = p.id_sport 
+            where  r.id_objectif = %s and r.id_imc=%s and id_poids_statut = %s ;");
+        $query = sprintf($query,$id_objectif,$id_imc,$id_poids_statut);
+        $quest = $this->db->query($query);
+        $result = $quest -> row_array();
+        return $result;
+    }
+
 }
 
 ?>
