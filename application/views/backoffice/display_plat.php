@@ -1,3 +1,4 @@
+    <title><i class="mdi mdi-food-fork-drink menu-icon"></i>Plats</title>
 <div class="row">
 <?php 
     $design['Petit dejeuner'] = "badge badge-success";
