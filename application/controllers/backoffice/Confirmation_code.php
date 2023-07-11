@@ -51,7 +51,7 @@ class Confirmation_code extends CI_Controller {
     public function get_all_confirmation(){
         $data = array();
         $data['donnees'] = $this->Confirmation_code_model->get_all_confirmation();
-        $this->load->view('header');
+        $this->load->view('backoffice/header_admin');
         $this->load->view("backoffice/confirmation_code",$data);
         $this->load->view('footer');
     }
