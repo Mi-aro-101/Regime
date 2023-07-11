@@ -17,6 +17,6 @@ select u.*, sp.*
     from Utilisateur u join Suivi_poids sp on u.id_utilisateur=sp.id_utilisateur
 
 --Select plat avec moment_journee
-select p.*, mj.
+select p.*, mj.reference_moment_journee
     from Plat p join Moment_journee mj on p.id_moment_journee = mj.id_moment_journee
 
