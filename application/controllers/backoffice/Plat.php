@@ -19,6 +19,7 @@ class Plat extends CI_Controller {
     }
 
     public function index() {
+        
         $this->get_header();
         $plat_liste['plat_liste'] = $this->plat_model->get_plats_moment_journee();
         $plat_liste['categories'] = $this->moment_journee_model->get_moment_journee('Moment_journee');

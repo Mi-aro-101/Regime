@@ -9,6 +9,10 @@ class Completion extends CI_Controller {
         $this->load->model("objectif_model");
         $this->load->model("suivi_poids_model");
         $this->load->model("programme_model");
+        $this->load->model("regime_plat_model");
+        $this->load->model("regime_journalier_model");
+        $this->load->model("regime_journalier_detail_model");
+
     }
 
     public function assign_poids($suivis){
@@ -96,6 +100,18 @@ class Completion extends CI_Controller {
         $this->completion_model->insert('Completion',$data_completion);
         $this->completion_model->insert('Objectifs_utilisateur',$data_objectif);
         $this->suivi_poids_model->insert('Suivi_poids',$data_suivis);
+
+        // //creation d'un programme
+        // $data_programme['duree'] = number_format($this -> programme_model->calcul_duree_programme($_SESSION['utilisateur']->id_utilisateur,$_POST['poids_objectif']),0);
+        // $data_programme['id_utilisateur'] = $this -> programme_model->generer($_SESSION['utilisateur']->id_utilisateur);
+        // $this->programme_model->insert ('Programme',$data_programme);
+
+        // //prendre le programme et creation d'un journalier selon la duree
+        // $data_journalier['id_programme']= $this->programme_model->get_by_id_utilisateur('Programme',$_SESSION['utilisateur']->id_utilisateur);
+        // $nombre_jour=  $data_programme['duree']*7;
+        // for($i=0; $i<=nombre_jour; $i++) {
+        //     $this->regime_journalier_model->insert
+        // }
 
 
         redirect(site_url("completion"));

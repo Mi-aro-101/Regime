@@ -120,7 +120,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("backoffice/parametre_plat");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/remgime_plat");?>>
               <i class="mdi mdi-flask-outline menu-icon"></i>
               <span class="menu-title">Parametre plat</span>
             </a>
