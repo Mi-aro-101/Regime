@@ -108,13 +108,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("backoffice/parametre_plat");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/plat");?>>
               <i class="mdi mdi-flask-outline menu-icon"></i>
               <span class="menu-title">Parametre plat</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("backoffice/parametre_sport");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/sport");?>>
               <i class="mdi mdi-heart-pulse menu-icon"></i>
               <span class="menu-title">Parametre sport</span>
             </a>
