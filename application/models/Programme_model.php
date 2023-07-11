@@ -5,7 +5,7 @@ class Programme_model extends CI_Model
 {
     public function __construct(){
         parent::__construct();
-        $this->load->model("Objectif_Utilisateur_model");
+        $this->load->model("Objectif_utilisateur_model");
         $this->load->model("Regime_plat_model");
         $this->load->model("Poids_statut_model");
         $this->load->model("Completion_model");
@@ -50,6 +50,7 @@ class Programme_model extends CI_Model
     public function get_reference_imc($imc_utilisateur) {
         $query = "Select * from Imc where intervalle_debut <= %s and intervalle_fin >= %s";
         $query = sprintf($query,$imc_utilisateur,$imc_utilisateur);
+        echo $query;
         $quest = $this->db->query($query);
         $result = $quest -> row_array();
         return $result;
