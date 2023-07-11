@@ -13,7 +13,7 @@
 
         <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">A propos de vous</h4>
+                  <h2 class="card-title">A propos de vous</h2>
                   <form class="forms-sample">
                     <div class="form-group row">
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nom : </label>
@@ -30,8 +30,7 @@
                     <div class="form-group row">
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Poids avant :</label>
                       <div class="col-sm-9">
-                        <!-- <input type="password" class="form-control" id="exampleInputConfirmPassword2" placeholder="Password"> -->
-                        <input type="text" readonly class="form-control-plaintext" id="exampleInputConfirmPassword2" value="<?php echo $suivis[0]['poids'];?>">
+                        <input type="text" readonly class="form-control-plaintext" id="exampleInputConfirmPassword2" value="<?php echo $suivis[0]['poids_suivi'];?>">
                       </div>
                     </div>
                     <div class="form-group row">
