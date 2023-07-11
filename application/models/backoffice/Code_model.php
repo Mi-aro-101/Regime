@@ -7,4 +7,9 @@ class Code_model extends CI_Model
         $result = $this->db->get($table)->result();
         return $result;
     }
+
+    public function insert_code($table,$data) {
+        $result = $this->db->insert($table,$data);
+        return $result;
+    }
 }
