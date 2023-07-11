@@ -16,6 +16,11 @@ class Plat_model extends CI_Model {
 
         return $plats;
     }
+    
+    function get_plats($table){
+        $result = $this->db->get($table)->result();
+        return $result;
+    }
 
     public function insert($table, $data){
         $result = $this->db->insert($table, $data);
