@@ -108,7 +108,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("backoffice/repas");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/plat");?>>
               <i class="mdi mdi-food-fork-drink menu-icon"></i>
               <span class="menu-title">Plat</span>
             </a>
