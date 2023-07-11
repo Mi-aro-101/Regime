@@ -8,7 +8,7 @@
                 <h4 class="card-title">A propos de vous</h4>
                     <div class="form-group">
                         <label for="exampleInputUsername1">Poids</label>
-                        <input type="number" class="form-control" id="exampleInputUsername1" name ="poids_utilisateur" placeholder="Poids">
+                        <input type="number" class="form-control" id="exampleInputUsername1" name ="poids_completion" placeholder="Poids">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Taille</label>

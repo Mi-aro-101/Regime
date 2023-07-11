@@ -36,10 +36,10 @@
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src=<?php echo base_url("image/health-weight.svg");?> alt="profile"/>
+              <img src=<?php echo base_url("image/logout.jpg");?> alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
+              <a class="dropdown-item" href=<?php echo site_url("utilisateur/deconnecter");?>>
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -77,7 +77,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href=<?php echo site_url("completion"); ?>>
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Mon profil</span>
             </a>
@@ -95,13 +95,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="charts">
+            <a class="nav-link" href=<?php echo site_url("suivi");?>>
               <i class="icon-bar-graph menu-icon"></i>
               <span class="menu-title">Suivie</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="tables">
+            <a class="nav-link" href=<?php echo site_url("porte_feuille_utilisateur");?>>
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">Porte Monnaie</span>
             </a>
