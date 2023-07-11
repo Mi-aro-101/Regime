@@ -32,10 +32,10 @@
               <h4 class="font-weight-light">Connectez-vous pour continuer</h4>
               <form class="pt-3" action=<?php echo site_url("utilisateur/authentifier") ;?> method="post">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="mail_utilisateur" placeholder="Mail" value="itu@gmail.com">
+                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="mail_utilisateur" placeholder="Mail" value="benja@gmail.com">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="mot_de_passe_utilisateur" value="123" placeholder="Mot de Passe">
+                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" name="mot_de_passe_utilisateur" value="111" placeholder="Mot de Passe">
                 </div>
                 <div class="mt-3">
                   <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="Se Connecter">

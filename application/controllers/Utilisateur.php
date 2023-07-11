@@ -7,6 +7,7 @@ class Utilisateur extends CI_Controller {
         parent::__construct();
         $this->load->model("utilisateur_model");
         $this->load->model("genre_model");
+        $this->load->model("porte_feuille_model");
     }
 
 	public function index()
@@ -47,6 +48,7 @@ class Utilisateur extends CI_Controller {
 
         if($this->verifier_mdp($data['mot_de_passe_utilisateur'], $password2)) {
             $this->utilisateur_model->insert('Utilisateur', $data);
+
             $this->session->set_flashdata('message', '<div class="alert alert-success">Vous avez bien été enregistré.</div>');
             redirect(base_url());
         }
@@ -61,7 +63,7 @@ class Utilisateur extends CI_Controller {
         $mail = $_POST["mail_utilisateur"];
         $password = $_POST["mot_de_passe_utilisateur"];
 
-        $utilisateur = $this->utilisateur_model->get_utilisateur_where('Utilisateur', $mail, $password);
+        $utilisateur = $this->utilisateur_model->get_utilisateur_where('Utilisateur', $mail, $password, 1);
         
         if($utilisateur != null){
             $_SESSION['utilisateur']= $utilisateur;
@@ -71,6 +73,15 @@ class Utilisateur extends CI_Controller {
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Mot de passe ou mail invalide.</div>');
             redirect(base_url());
         }
+    }
+
+    /**
+     * Decconexion function
+     */
+    public function deconnecter(){
+        session_start();
+        session_destroy();
+        redirect(base_url());
     }
 	
 }
