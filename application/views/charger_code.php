@@ -2,10 +2,8 @@
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-                  <h4 class="card-title">Basic Table</h4>
-                  <p class="card-description">
-                    Add class <code>.table</code>
-                  </p>
+                  <h4 class="card-title">Liste des codes disponibles</h4>
+                  <?php echo $this->session->flashdata('message'); ?>
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -18,9 +16,14 @@
                       <tbody>
                         <?php foreach ($codes as $code){ ?>
                             <tr>
-                                <td><?php echo $code->code; ?></td>
-                                <td><?php echo $code->montant; ?></td>
-                                <td><a href="<?php echo site_url("porte_feuille_utilisateur/demander_code/".$code->id_code);?>"><button class="btn btn-success">Acheter</button></a></td>
+                                <td><?php echo $code['code']; ?></td>
+                                <td><?php echo $code['montant']; ?></td>
+                                <td><a href=<?php echo site_url("porte_feuille_utilisateur/demander_code/".$code['id_code']);?>>
+                                        <button class="btn btn-success"
+                                            <?php if($code['id_utilisateur'] == $_SESSION['utilisateur']->id_utilisateur){ echo 'disabled';}?> >
+                                            Acheter
+                                        </button>
+                                    </a></td>
                             </tr>
                         <?php } ?>
                       </tbody>
