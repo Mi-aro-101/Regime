@@ -2,10 +2,7 @@
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-                  <h4 class="card-title">Basic Table <?php echo $codes[0]['id_code']; ?></h4>
-                  <p class="card-description">
-                    Add class <code>.table</code>
-                  </p>
+                  <h4 class="card-title">Liste des codes disponibles</h4>
                   <?php echo $this->session->flashdata('message'); ?>
                   <div class="table-responsive">
                     <table class="table">

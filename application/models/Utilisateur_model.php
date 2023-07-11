@@ -13,8 +13,8 @@ class Utilisateur_model extends CI_Model {
         return $result;
     }
 
-    public function get_utilisateur_where($table, $mail, $password){
-        $result = $this->db->get_where($table, ['mail_utilisateur' => $mail, 'mot_de_passe_utilisateur' => $password])->row();
+    public function get_utilisateur_where($table, $mail, $password, $statut){
+        $result = $this->db->get_where($table, ['mail_utilisateur' => $mail, 'mot_de_passe_utilisateur' => $password, 'statut_utilisateur' => $password])->row();
         return $result;
     }
 	
