@@ -5,7 +5,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
   <!-- plugins:css --> 
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/feather/feather.css");?>>
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/ti-icons/css/themify-icons.css");?>>
@@ -92,7 +91,7 @@
           <li class="nav-item">
             <a class="nav-link"  href=<?php echo site_url("Calendrier_Programme/testProgramme");?> >
               <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">A propos</span>
+              <span class="menu-title">Pdf Programme</span>
             </a>
           </li>
           <li class="nav-item">

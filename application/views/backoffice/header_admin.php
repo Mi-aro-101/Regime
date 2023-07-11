@@ -5,7 +5,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
   <!-- plugins:css --> 
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/feather/feather.css");?>>
   <link rel="stylesheet" href=<?php echo base_url("css/vendors/ti-icons/css/themify-icons.css");?>>
@@ -78,15 +77,9 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("#"); ?>>
-              <i class="mdi mdi-account menu-icon"></i>
-              <span class="menu-title">Mon profil</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("#");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/Porte_feuille_admin/get_vola");?>>
               <i class="mdi mdi-calendar-clock menu-icon"></i>
-              <span class="menu-title">Programme</span>
+              <span class="menu-title">Porte Feuille</span>
             </a>
           </li>
           <li class="nav-item">
@@ -102,12 +95,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("porte_feuille_utilisateur");?>>
-              <i class="mdi mdi-wallet-travel menu-icon"></i>
-              <span class="menu-title">Porte Monnaie</span>
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href=<?php echo site_url("backoffice/plat");?>>
               <i class="mdi mdi-food-fork-drink menu-icon"></i>
               <span class="menu-title">Plat</span>
@@ -120,13 +107,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("backoffice/parametre_plat");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/plat");?>
               <i class="mdi mdi-flask-outline menu-icon"></i>
               <span class="menu-title">Parametre plat</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=<?php echo site_url("backoffice/parametre_sport");?>>
+            <a class="nav-link" href=<?php echo site_url("backoffice/sport");?>>
               <i class="mdi mdi-heart-pulse menu-icon"></i>
               <span class="menu-title">Parametre sport</span>
             </a>
